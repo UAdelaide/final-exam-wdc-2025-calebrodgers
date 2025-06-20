@@ -16,7 +16,7 @@ let db;
 
 (async () => {
     try {
-        db = await mysql.createConnection({
+        db = await mysql.createPool({
             host: "localhost",
             // user: 'root',
             // password: '',
@@ -29,7 +29,7 @@ let db;
 
 app.get('/', async (req, res) => {
     try {
-        const [users] = await db.execute('SELECT * FROM Dogs');
+        const [users] = await db.query('SELECT * FROM Dogs');
         res.json(users);
     } catch (err) {
         console.log(err);
