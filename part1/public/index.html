@@ -30,7 +30,7 @@
       methods: {
         async fetchDogs() {
           try {
-          
+
                   const imgRes = await fetch('https://dog.ceo/api/breeds/image/random');
                   const img = await imgRes.json();
                   return { ...dog, photo: img.message };
@@ -42,9 +42,7 @@
             }
 
           } catch (err) {
-            console.error('Error fetching dogs: ', err)
-          }
-        }
+            console.error('Error fetching dogs: ', err);
       },
       mounted() {
         this.fetchDogs();
