@@ -17,18 +17,18 @@ const db = mysql.createConnection({
 });
 
 db.connect((err) => {
-  if (err) {
-    process.exit(1);
-  }
+    if (err) {
+        process.exit(1);
+    }
 });
 
 app.get('/', async (req, res) => {
-  try {
-    const [users] = await db.execute('SELECT * FROM Users');
-    res.json(books);
-  } catch (err) {
-    res.status(500).json({ error: 'Failed to fetch books' });
-  }
+    try {
+        const [users] = await db.execute('SELECT * FROM Users');
+        res.json(uers);
+    } catch (err) {
+        res.status(500).json({ error: 'Failed to fetch users' });
+    }
 });
 
 module.exports = app;
