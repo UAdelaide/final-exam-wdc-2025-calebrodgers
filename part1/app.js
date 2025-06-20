@@ -25,7 +25,7 @@ let db;
     } catch (err) {
         console.error('Error connecting to database', err);
     }
-});
+})();
 
 app.get('/api/dogs', async (req, res) => {
     try {
