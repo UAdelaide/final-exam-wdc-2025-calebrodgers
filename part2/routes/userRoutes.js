@@ -71,7 +71,7 @@ router.post('/logout', (req, res) => {
       return res.status(500).json({ error: 'Logout error' });
     }
 
-    res.redirect("index.html");
+    res.json({});
   });
 });
 
