@@ -3,7 +3,7 @@ const router = express.Router();
 const db = require('../models/db');
 
 // GET dogs by owner (for owners to select from)
-router.get('/', async (req, res) => {
+router.get('/owned', async (req, res) => {
   if (!req.session.user) {
     return res.status(401).json({ error: 'Not logged in' });
   }
@@ -19,13 +19,14 @@ router.get('/', async (req, res) => {
   }
 });
 
+// GET all dogs
 app.get('/api/dogs', async (req, res) => {
-    try {
-        const [dogs] = await db.query('SELECT Dogs.name AS dog_name, Dogs.size, Users.username AS owner_username FROM Dogs JOIN Users On Dogs.owner_id = Users.user_id');
-        res.json(dogs);
-    } catch (err) {
-        res.status(500).json({ error: 'Failed to fetch dogs' });
-    }
+  try {
+    const [dogs] = await db.query('SELECT Dogs.name AS dog_name, Dogs.size, Users.username AS owner_username FROM Dogs JOIN Users On Dogs.owner_id = Users.user_id');
+    res.json(dogs);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to fetch dogs' });
+  }
 });
 
 module.exports = router;
