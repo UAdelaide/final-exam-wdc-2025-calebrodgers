@@ -111,12 +111,13 @@
             const response = await fetch('/api/dogs');
             const data = await response.json();
             if (response.ok) {
-              const 
-              data.map(async dog => {
-                const imgRes = await fetch('https://dog.ceo/api/breeds/image/random');
-                const img = await imgRes.json();
-                return {...dog, photo:img.message};
-              })
+              const result = await Promise.all(
+                data.map(async dog => {
+                  const imgRes = await fetch('https://dog.ceo/api/breeds/image/random');
+                  const img = await imgRes.json();
+                  return { ...dog, photo: img.message };
+                })
+              );
               this.dogs = data;
             } else {
               console.error('Failed to fetch dogs')
