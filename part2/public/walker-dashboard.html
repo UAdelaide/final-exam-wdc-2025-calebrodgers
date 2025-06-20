@@ -78,8 +78,10 @@
           try {
             const res = await fetch('logout', {
               method: 'POST',
-              headers: {'Content-Type':}
-            })
+              headers: {'Content-Type':'application/json'}
+            });
+
+            if 
           } catch (err) {
             error.value = err || "Unexpected error";
           }
