@@ -81,6 +81,8 @@
           location: ''
         });
 
+        const dogs = ref([]);
+
         const walks = ref([]);
         const message = ref('');
         const error = ref('');
@@ -126,7 +128,7 @@
             if (res.ok) {
               dogs.value = await res.json();
             }
-          } catch(err) {
+          } catch (err) {
             error.value = "Error loading dog list"
           }
         }
@@ -150,6 +152,7 @@
 
         onMounted(() => {
           loadWalks();
+          loadDogs();
         });
 
         return {
