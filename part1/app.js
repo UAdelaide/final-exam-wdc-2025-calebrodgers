@@ -20,7 +20,7 @@ let db;
             host: 'localhost',
             user: 'root',
             password: '',
-            database: 'DogWalkService
+            database: 'DogWalkService'
         });
     } catch (err) {
         console.error('Error connecting to database', err);
