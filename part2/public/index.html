@@ -51,8 +51,10 @@
               window.location.href = 'walker-dashboard.html';
             }
           } else {
-            this.errorMsg = data
+            this.errorMsg = data.error || 'Invalid credntials';
           }
+        } catch (error) {
+          this.errorMsg
         }
       }
     }).mount('#app');
