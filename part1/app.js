@@ -28,7 +28,7 @@ let db;
     }
 })();
 
-// Route
+// Route to return a list of all dogs with their size and owner's username.
 app.get('/api/dogs', async (req, res) => {
     try {
         const [dogs] = await db.query('SELECT Dogs.name AS dog_name, Dogs.size, Users.username AS owner_username FROM Dogs JOIN Users On Dogs.owner_id = Users.user_id');
