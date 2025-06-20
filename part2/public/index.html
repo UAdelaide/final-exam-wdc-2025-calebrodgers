@@ -90,7 +90,6 @@
             const data = await response.json();
             if (response.ok) {
               this.dogs = data;
-              console.log(data);
             } else {
               console.error('Failed to fetch dogs')
             }
