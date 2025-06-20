@@ -76,9 +76,11 @@
 
         async function logout() {
           try {
-
+            const res = await fetch('logout', {
+              
+            })
           } catch (err) {
-            error.value = err || "U";
+            error.value = err || "Unexpected error";
           }
         }
 
