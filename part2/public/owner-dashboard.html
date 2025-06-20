@@ -81,8 +81,6 @@
           location: ''
         });
 
-        const dogs = ref([]);
-
         const walks = ref([]);
         const message = ref('');
         const error = ref('');
@@ -128,41 +126,40 @@
             if (res.ok) {
               dogs.value = await res.json();
             }
-          } catch (err) {
+          } catch(err) {
             error.value = "Error loading dog list"
           }
         }
-      }
 
         async function logout() {
-      try {
-        const res = await fetch('/api/users/logout', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' }
-        });
+          try {
+            const res = await fetch('/api/users/logout', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' }
+            });
 
-        if(res.ok) {
-      window.location.href = 'index.html'
-    } else {
-      error.value = "Error logging out";
-    }
+            if (res.ok) {
+              window.location.href = 'index.html'
+            } else {
+              error.value = "Error logging out";
+            }
           } catch (err) {
-      error.value = err || "Unexpected error";
-    }
+            error.value = err || "Unexpected error";
+          }
         }
 
-    onMounted(() => {
-      loadWalks();
-    });
+        onMounted(() => {
+          loadWalks();
+        });
 
-    return {
-      form,
-      walks,
-      message,
-      error,
-      submitWalkRequest,
-      logout
-    };
+        return {
+          form,
+          walks,
+          message,
+          error,
+          submitWalkRequest,
+          logout
+        };
       }
     }).mount('#app');
   </script>
