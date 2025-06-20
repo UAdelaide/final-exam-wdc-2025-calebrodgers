@@ -27,7 +27,9 @@ app.use((req, res, next) => {
         return res.redirect('index.html');
     }
 
-    if (req.session.user.role === 'owner')
+    if (req.session.user.role === 'owner' ) {
+        return
+    }
 
 });
 
