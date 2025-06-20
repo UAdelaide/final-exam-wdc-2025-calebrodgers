@@ -7,7 +7,6 @@ const app = express();
 
 // Middleware
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '/public')));
 
 // Use express-session middleware
 app.use(
@@ -39,6 +38,8 @@ app.use((req, res, next) => {
         return res.redirect('/walker-dashboard.html');
     }
 });
+
+app.use(express.static(path.join(__dirname, '/public')));
 
 // Routes
 const walkRoutes = require('./routes/walkRoutes');
