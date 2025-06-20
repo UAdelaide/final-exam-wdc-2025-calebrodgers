@@ -21,15 +21,20 @@
         <h1>This is a service whereby you, the user can request for one of our registered student dog walkers to walk
             your
             dog for you</h1>
-
-        <div v-if="step==='1'"
-
-        <p>We can show you our dog of the day if you like! To do so, click on on the button below which will load the
-            image and some details about today's dog!</p>
-
         <button @click="fetchDogImg">
-            Click here
+            Continue
         </button>
+
+        <div v-if="step===1">
+
+            <p>We can show you our dog of the day if you like! To do so, click on on the button below which will load
+                the
+                image and some details about today's dog!</p>
+
+            <button @click="fetchDogImg">
+                Click here
+            </button>
+        </div>
 
         <img :src="dogImg" style="height: 100px;">
 
