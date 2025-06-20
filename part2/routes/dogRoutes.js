@@ -20,7 +20,7 @@ router.get('/owned', async (req, res) => {
 });
 
 // GET all dogs
-app.get('/', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const [dogs] = await db.query('SELECT Dogs.name AS dog_name, Dogs.size, Users.username AS owner_username FROM Dogs JOIN Users On Dogs.owner_id = Users.user_id');
     res.json(dogs);
