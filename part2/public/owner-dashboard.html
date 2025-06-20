@@ -132,6 +132,7 @@
             const res = await fetch(`/api/dogs?owner_id=${1}`);
             if (res.ok) {
               dogs.value = await res.json();
+              console.log(dogs);
             }
           } catch (err) {
             error.value = "Error loading dog list"
