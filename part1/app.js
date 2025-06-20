@@ -51,8 +51,8 @@ app.get('/api/walkrequests/open', async (req, res) => {
 // Route to return a summary of each walker with their average rating and number of completed walks.
 app.get('/api/walkers/summary', async (req, res) => {
     try {
-        const [requests] = await db.query(`SELECT w.request_id, d.name AS dog_name, w.requested_time, w.duration_minutes, w.location, u.username AS owner_username fROM WalkRequests w JOIN Dogs d ON w.dog_id = d.dog_id JOIN Users u ON d.owner_id = u.user_id WHERE w.status = 'open'`);
-        res.json(requests);
+        const [walkers_summary] = await db.query(`SELECT w.request_id, d.name AS dog_name, w.requested_time, w.duration_minutes, w.location, u.username AS owner_username fROM WalkRequests w JOIN Dogs d ON w.dog_id = d.dog_id JOIN Users u ON d.owner_id = u.user_id WHERE w.status = 'open'`);
+        res.json(walkers_summary);
     } catch (err) {
         res.status(500).json({ error: 'Failed to open walk requests' });
     }
