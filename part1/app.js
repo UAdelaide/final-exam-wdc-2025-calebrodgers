@@ -22,4 +22,13 @@ db.connect((err) => {
   }
 });
 
+app.get('/', async (req, res) => {
+  try {
+    const [users] = await db.execute('SELECT * FROM Users');
+    res.json(books);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to fetch books' });
+  }
+});
+
 module.exports = app;
