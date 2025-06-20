@@ -10,7 +10,6 @@ router.get('/', async (req, res) => {
     const [rows] = await db.query(`
       SELECT dog_id, name FROM Dogs WHERE owner_id = ?
     `, owner_id);
-    console.log(rows);
     res.json(rows);
   } catch (error) {
     console.error('SQL Error:', error);
