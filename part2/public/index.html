@@ -47,7 +47,7 @@
           username: '',
           password: '',
           errorMsg: '',
-          dogs:[]
+          dogs: []
         };
       },
       methods: {
@@ -88,7 +88,7 @@
             const data = await response.json();
             if (response.ok) {
               this.dogs = data;
-            } else{
+            } else {
               console.error('Failed to fetch dogs')
             }
 
@@ -97,6 +97,9 @@
           }
         }
       },
+      mounted() {
+        this.fetchDogs();
+      }
     }).mount('#app');
   </script>
 
