@@ -6,10 +6,10 @@ const db = require('../models/db');
 router.get('/', async (req, res) => {
   try {
     const [rows] = await db.query(`
-      SELECT name AS dog_name, d.size, u.username AS owner_name
+      SELECT name
       FROM Dogs
-      WHERE owner_id = 'open'
-    `);
+      WHERE owner_id = ?
+    `, owner_id);
     res.json(rows);
   } catch (error) {
     console.error('SQL Error:', error);
