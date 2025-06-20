@@ -18,8 +18,8 @@ let db;
     try {
         db = await mysql.createConnection({
             host: "localhost",
-            user: 'root',
-            password: '',
+            // user: 'root',
+            // password: '',
             database: "DogWalkService"
         });
     } catch (err) {
