@@ -17,7 +17,7 @@
 
     <div class="card mb-4">
       <div class="card-header bg-primary text-white">
-        Create New Walk Request
+        Login
       </div>
       <div class="card-body">
         <form @submit.prevent="submitWalkRequest">
@@ -42,10 +42,8 @@
       </div>
     </div>
 
-    <!-- Success or error messages -->
-    <div v-if="message" class="alert alert-info">{{ message }}</div>
-    <div v-if="error" class="alert alert-danger">{{ error }}</div>
-    
+    <div v-if="error" class="alert alert-danger">{{ errorMsg }}</div>
+
   </div>
 
   <script>
