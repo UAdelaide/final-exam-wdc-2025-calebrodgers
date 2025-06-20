@@ -60,7 +60,11 @@
               body: JSON.stringify({ username: this.username, password: this.password })
             });
 
+            console.log('a');
+
             const data = await response.json();
+
+            console.log(data);
 
             if (response.ok) {
               // OK response came back from /api/users/login,
