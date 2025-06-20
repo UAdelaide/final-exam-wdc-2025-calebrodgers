@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
   try {
     const [rows] = await db.query(`
       SELECT dog_id, name FROM Dogs WHERE owner_id = ?
-    `, req.sess);
+    `, req.session.user.user_id);
     res.json(rows);
   } catch (error) {
     console.error('SQL Error:', error);
