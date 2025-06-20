@@ -19,11 +19,11 @@ const db = mysql.createConnection({
     database: "DogWalkService"
 });
 
-db.connect((err) => {
-    if (err) {
-        process.exit(1);
-    }
-});
+// db.connect((err) => {
+//     if (err) {
+//         process.exit(1);
+//     }
+// });
 
 app.get('/', async (req, res) => {
     try {
