@@ -20,7 +20,10 @@ app.use(
 );
 
 // Redirect all unauthenticated users to index, and owners and walkers
+// to their respective pages
 app.use((req, res, next) => {
+    if (!req.sessio)
+});
 
 // Routes
 const walkRoutes = require('./routes/walkRoutes');
