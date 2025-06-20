@@ -52,7 +52,11 @@
         const user = ref(null);
 
         async function getCurrentUser() {
-          try
+          try {
+
+          } catch (error) {
+            error.value = 'Error loading the current user';
+          }
         }
 
         async function loadWalkRequests() {
