@@ -13,8 +13,8 @@
             color: green;
         }
 
-        #top {
-            padding-bottom: 50vh;
+        #dogofday {
+            padding-top: 75vh;
         }
     </style>
 </head>
@@ -30,26 +30,28 @@
             </button>
         </h1>
 
-        <div id="dogofday"></div>
-        <div v-if="step===1">
+        <div id="dogofday">
+            <div v-if="step===1">
 
-            <p>We can show you our dog of the day if you like! To do so, click on on the button below which will
-                load
-                the
-                image and some details about today's dog!</p>
+                <p>We can show you our dog of the day if you like! To do so, click on on the button below which will
+                    load
+                    the
+                    image and some details about today's dog!</p>
 
-            <button @click="fetchDogImg">
-                Click here
-            </button>
+                <button @click="fetchDogImg">
+                    Click here
+                </button>
+            </div>
+
+            <div v-if="step===2">
+                <p>The dog of the day today is Mr Pickles. Mr Pickles is a Western Deerhound Collie (WDC). Mr Pickles
+                    like
+                    eating.</p>
+            </div>
+
+            <img :src="dogImg" style="height: 100px;">
+
         </div>
-
-        <div v-if="step===2">
-            <p>The dog of the day today is Mr Pickles. Mr Pickles is a Western Deerhound Collie (WDC). Mr Pickles like
-                eating.</p>
-        </div>
-
-        <img :src="dogImg" style="height: 100px;">
-
     </div>
 
     <script>
