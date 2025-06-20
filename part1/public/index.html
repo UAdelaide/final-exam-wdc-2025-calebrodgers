@@ -38,11 +38,13 @@
 
                     } catch (err) {
                         console.error('Error fetching dogs: ', err);
-                    },
-                    mounted() {
-                        this.fetchDogs();
                     }
-                }).mount('#container');
+                },
+                mounted() {
+                    this.fetchDogs();
+                }
+            }
+        }).mount('#container');
     </script>
 </body>
 
