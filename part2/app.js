@@ -21,24 +21,24 @@ app.use(
 
 // Redirect all unauthenticated users to index, and owners and walkers
 // to their respective pages
-app.use((req, res, next) => {
-    const exposedPaths = ["/", "api/users/login"];
-    if (!req.session.user && !exposedPaths.includes(req.path)) {
-        return res.redirect('index.html');
-    }
+// app.use((req, res, next) => {
+//     const exposedPaths = ["/", "api/users/login"];
+//     if (!req.session.user && !exposedPaths.includes(req.path)) {
+//         return res.redirect('index.html');
+//     }
 
-    const ownerPaths = ["/owner-dashboard.html", "api"];
+//     const ownerPaths = ["/owner-dashboard.html", "api"];
 
-    if (req.session.user.role === 'owner' && !ownerPaths) {
-        return res.redirect('/owner-dashboard.html');
-    }
+//     if (req.session.user.role === 'owner' && !ownerPaths) {
+//         return res.redirect('/owner-dashboard.html');
+//     }
 
-    const walkerPaths = ["/walker-dashboard.html", "api"];
+//     const walkerPaths = ["/walker-dashboard.html", "api"];
 
-    if (req.session.user.role === 'walker' && !walkerPaths) {
-        return res.redirect('/walker-dashboard.html');
-    }
-});
+//     if (req.session.user.role === 'walker' && !walkerPaths) {
+//         return res.redirect('/walker-dashboard.html');
+//     }
+// });
 
 // Routes
 const walkRoutes = require('./routes/walkRoutes');
