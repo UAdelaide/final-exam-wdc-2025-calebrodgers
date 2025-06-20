@@ -12,8 +12,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 const db = mysql.createConnection({
-  host: "localhost",
-  database: "unifyu"
+    host: "localhost",
+    database: "DogWalkingService"
 });
 
 module.exports = app;
