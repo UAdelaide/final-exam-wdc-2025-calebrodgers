@@ -35,10 +35,9 @@ app.use((req, res, next) => {
 
     const walkerPaths = ["/walker-dashboard.html", "api"];
 
-    if (req.session.user.role === 'walker' && !ownerPaths) {
-        return res.redirect('/owner-dashboard.html');
+    if (req.session.user.role === 'walker' && !walkerPaths) {
+        return res.redirect('/walker-dashboard.html');
     }
-
 });
 
 // Routes
