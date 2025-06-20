@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-const db = mysql.createConnection({
+const db = await mysql.createConnection({
     host: "localhost",
     user: 'root',
     password: '',
