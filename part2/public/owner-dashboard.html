@@ -139,7 +139,7 @@
               console.log(dogs);
             }
           } catch (err) {
-            error.value = "Error loading dog list"
+            error.value = err.message;
           }
         }
 
