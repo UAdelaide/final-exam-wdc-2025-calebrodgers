@@ -49,6 +49,8 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
 
+    // If a matching user account is found in the databse,
+    // store the user_id, username, and role in the session
     const user = rows[0];
 
     req.session.user = {
