@@ -37,7 +37,7 @@ app.get('/', async (req, res) => {
     try {
         // const result = await db.execute('SELECT * FROM Users');
         // console.log(result);
-        const [users] = await db.execute('SELECT * FROM Users');
+        const [users] = await db.execute('SELECT * FROM Dogs');
         res.json(users);
     } catch (err) {
         console.log(err);
