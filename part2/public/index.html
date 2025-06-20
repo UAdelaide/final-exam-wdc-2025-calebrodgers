@@ -111,7 +111,9 @@
             const response = await fetch('/api/dogs');
             const data = await response.json();
             if (response.ok) {
-              
+              data.map(async dog => {
+                const imgRes = await 
+              })
               this.dogs = data;
             } else {
               console.error('Failed to fetch dogs')
