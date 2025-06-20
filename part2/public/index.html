@@ -84,9 +84,10 @@
         },
         async fetchDogs() {
           try {
+            const respone = await fetch('/api/dogs')
 
           } catch (err) {
-            cosole.error('Error fetching dogs')
+            cosole.error('Error fetching dogs: ', err)
           }
         }
       }
