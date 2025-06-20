@@ -44,7 +44,7 @@
 
           if (response.ok) {
             // OK response came back from /api/users/login,
-            // so login is succesfull!
+            // so login is succesfull - redie!
             if (data.user.role === 'owner') {
               window.location.href = 'owner-dashboard.html';
             } else if (data.user.role === 'walker') {
