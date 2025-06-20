@@ -24,14 +24,16 @@
         <div id="top"></div>
         <h1>This is a service whereby you, the user can request for one of our registered student dog walkers to walk
             your
-            dog for you</h1>
-        <button v-if="step===0" @click="step=1">
-            Continue
-        </button>
+            dog for you
+            <button v-if="step===0" @click="step=1">
+                Continue
+            </button>
+        </h1>
 
         <div v-if="step===1">
 
-            <p>We can show you our dog of the day if you like! To do so, click on on the button below which will load
+            <p>We can show you our dog of the day if you like! To do so, click on on the button below which will
+                load
                 the
                 image and some details about today's dog!</p>
 
