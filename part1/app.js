@@ -14,6 +14,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const db = mysql.createConnection({
     host: "localhost",
+    user: 'root',
+    password: '',
     database: "DogWalkService"
 });
 
