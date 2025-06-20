@@ -10,7 +10,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+
 
 let db;
 
@@ -27,12 +27,6 @@ let db;
     }
 });
 
-// db.connect((err) => {
-//     if (err) {
-//         process.exit(1);
-//     }
-// });
-
 app.get('/', async (req, res) => {
     try {
         // const result = await db.execute('SELECT * FROM Users');
@@ -44,5 +38,7 @@ app.get('/', async (req, res) => {
         res.status(500).json({ error: 'Failed to fetch users' });
     }
 });
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 module.exports = app;
