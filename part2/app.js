@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 require('dotenv').config();
-
+const session = require("express-session");
 
 const app = express();
 
@@ -10,12 +10,12 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
 
 app.use(
-  session({
-    secret: "WDCTakeHomeExam",
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: false }
-  })
+    session({
+        secret: "WDCTakeHomeExam",
+        resave: false,
+        saveUninitialized: true,
+        cookie: { secure: false }
+    })
 );
 
 // Routes
