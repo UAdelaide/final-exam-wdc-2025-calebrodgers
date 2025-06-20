@@ -33,11 +33,10 @@
 
                         const imgRes = await fetch('https://dog.ceo/api/breeds/image/random');
                         const img = await imgRes.json();
-                        return { ...dog, photo: img.message };
                         this.dogs = img.message;
 
                     } catch (err) {
-                        console.error('Error fetching dogs: ', err);
+                        console.error('Error fetching dog image: ', err);
                     }
                 },
                 mounted() {
