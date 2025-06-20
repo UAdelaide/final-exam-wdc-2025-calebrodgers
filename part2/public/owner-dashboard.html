@@ -134,8 +134,6 @@
             if (!res.ok) throw new Error(result.error || 'Error loading dogs');
 
             dogs.value = await res.json();
-
-
           } catch (err) {
             error.value = err.message;
           }
