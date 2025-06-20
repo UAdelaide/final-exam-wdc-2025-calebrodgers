@@ -45,7 +45,9 @@
           if (response.ok) {
             // OK response came back from /api/users/login,
             // so login is succesfull!
-            
+            if (data.user.role === 'owner') {
+              window.location.href = 'owner-dashb'
+            }
           }
         }
       }
