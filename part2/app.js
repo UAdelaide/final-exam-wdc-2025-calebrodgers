@@ -27,10 +27,10 @@ app.use((req, res, next) => {
         return res.redirect('index.html');
     }
 
-    const ownerPaths = ["/owner-dashboard.html"]
+    const ownerPaths = ["/owner-dashboard.html", "api"];
 
-    if (req.session.user.role === 'owner' && !) {
-        return
+    if (req.session.user.role === 'owner' && !ownerPaths) {
+        return red/
     }
 
 });
