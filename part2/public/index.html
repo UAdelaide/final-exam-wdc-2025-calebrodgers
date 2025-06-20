@@ -112,7 +112,9 @@
             const data = await response.json();
             if (response.ok) {
               data.map(async dog => {
-                const imgRes = await 
+                const imgRes = await fetch('https://dog.ceo/api/breeds/image/random');
+                const img = await imgRes.json();
+                return {}
               })
               this.dogs = data;
             } else {
