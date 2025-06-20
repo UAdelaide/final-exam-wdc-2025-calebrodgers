@@ -122,7 +122,8 @@
 
         async function loadDogs() {
           try {
-            const res = await fetch(`/api/dogs?owner_)
+            const res = await fetch(`/api/dogs?owner_id=${1}`);
+            if (res)
 
           } catch(err) {
             error.value = "Error loading dog list"
