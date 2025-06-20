@@ -27,7 +27,10 @@
       },
       methods: {
         async login() {
-          const r
+          const response = await fetch('/api/login', {
+            method: 'POST',
+            
+          })
         }
       }
     }).mount('#app');
