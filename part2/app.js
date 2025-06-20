@@ -24,8 +24,11 @@ app.use(
 app.use((req, res, next) => {
     const exposedPaths = ["/", "api/users/login"];
     if (!req.session.user && !exposedPaths.includes(req.path)) {
-        return res.redirect('index.html')
+        return res.redirect('index.html');
     }
+
+    
+
 });
 
 // Routes
