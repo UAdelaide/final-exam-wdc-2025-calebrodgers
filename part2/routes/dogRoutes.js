@@ -4,6 +4,7 @@ const db = require('../models/db');
 
 // GET dogs by owner (for owners to select from)
 router.get('/', async (req, res) => {
+  console.log("dsd");
   const { owner_id } = req.query;
 
   try {
