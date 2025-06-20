@@ -22,7 +22,7 @@ app.use(
 // Redirect all unauthenticated users to index, and owners and walkers
 // to their respective pages
 app.use((req, res, next) => {
-    const exposedPaths = ["/", "a"]
+    const exposedPaths = ["/", "api/users/login"];
     if (!req.session.user) {
         return res.redirect('index.html')
     }
