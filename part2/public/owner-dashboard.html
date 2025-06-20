@@ -123,42 +123,44 @@
         async function loadDogs() {
           try {
             const res = await fetch(`/api/dogs?owner_id=${1}`);
-            if (res)
-
-          } catch(err) {
-            error.value = "Error loading dog list"
-          }}
-        }
-
-        async function logout() {
-          try {
-            const res = await fetch('/api/users/logout', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' }
-            });
-
             if (res.ok) {
-              window.location.href = 'index.html'
-            } else {
-              error.value = "Error logging out";
+              dogs.value = await res.json();
             }
           } catch (err) {
-            error.value = err || "Unexpected error";
+            error.value = "Error loading dog list"
           }
         }
+      }
 
-        onMounted(() => {
-          loadWalks();
+        async function logout() {
+      try {
+        const res = await fetch('/api/users/logout', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' }
         });
 
-        return {
-          form,
-          walks,
-          message,
-          error,
-          submitWalkRequest,
-          logout
-        };
+        if(res.ok) {
+      window.location.href = 'index.html'
+    } else {
+      error.value = "Error logging out";
+    }
+          } catch (err) {
+      error.value = err || "Unexpected error";
+    }
+        }
+
+    onMounted(() => {
+      loadWalks();
+    });
+
+    return {
+      form,
+      walks,
+      message,
+      error,
+      submitWalkRequest,
+      logout
+    };
       }
     }).mount('#app');
   </script>
