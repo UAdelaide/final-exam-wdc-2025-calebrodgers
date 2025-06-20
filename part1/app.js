@@ -14,6 +14,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 let db;
 
+// Set up a connection with the DogWalkService databse
 (async () => {
     try {
         db = await mysql.createConnection({
@@ -27,6 +28,7 @@ let db;
     }
 })();
 
+// Route
 app.get('/api/dogs', async (req, res) => {
     try {
         const [dogs] = await db.query('SELECT Dogs.name AS dog_name, Dogs.size, Users.username AS owner_username FROM Dogs JOIN Users On Dogs.owner_id = Users.user_id');
