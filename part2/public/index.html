@@ -15,8 +15,37 @@
     <h1 class="mb-4 text-primary">{{ message }}</h1>
     <p class="lead">Connect with trusted walkers for your beloved dog!</p>
 
-    <a href="owner-dashboard.html" class="btn btn-outline-primary me-2">Owner Dashboard</a>
-    <a href="walker-dashboard.html" class="btn btn-outline-success">Walker Dashboard</a>
+    <div class="card mb-4">
+      <div class="card-header bg-primary text-white">
+        Create New Walk Request
+      </div>
+      <div class="card-body">
+        <form @submit.prevent="submitWalkRequest">
+          <div class="mb-3">
+            <label class="form-label">Dog ID</label>
+            <input v-model="form.dog_id" type="number" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Requested Date & Time</label>
+            <input v-model="form.requested_time" type="datetime-local" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Duration (minutes)</label>
+            <input v-model="form.duration_minutes" type="number" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Location</label>
+            <input v-model="form.location" type="text" class="form-control" required>
+          </div>
+          <button type="submit" class="btn btn-success">Create Walk</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Success or error messages -->
+    <div v-if="message" class="alert alert-info">{{ message }}</div>
+    <div v-if="error" class="alert alert-danger">{{ error }}</div>
+    
   </div>
 
   <script>
