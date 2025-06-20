@@ -24,21 +24,13 @@
     createApp({
       data() {
         return {
-          message: 'Welcome to the Dog Walking Service!',
-          username: '',
-          password: '',
-          errorMsg: '',
           dogImg: []
         };
       },
       methods: {
         async fetchDogs() {
           try {
-            const response = await fetch('/api/dogs');
-            const data = await response.json();
-            if (response.ok) {
-              const result = await Promise.all(
-                data.map(async dog => {
+          
                   const imgRes = await fetch('https://dog.ceo/api/breeds/image/random');
                   const img = await imgRes.json();
                   return { ...dog, photo: img.message };
