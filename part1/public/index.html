@@ -34,12 +34,7 @@
                   const imgRes = await fetch('https://dog.ceo/api/breeds/image/random');
                   const img = await imgRes.json();
                   return { ...dog, photo: img.message };
-                })
-              );
-              this.dogs = result;
-            } else {
-              console.error('Failed to fetch dogs')
-            }
+                this.dogs = result;
 
           } catch (err) {
             console.error('Error fetching dogs: ', err);
