@@ -29,7 +29,7 @@ let db;
 
 app.get('/', async (req, res) => {
     try {
-        const [users] = await db.execute('SHOW tables');
+        const [users] = await db.execute('SELECT * FROM Dogs');
         res.json(users);
     } catch (err) {
         console.log(err);
