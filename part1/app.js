@@ -15,11 +15,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 let db;
 
 (async () => {
-const db = await mysql.createConnection({
-    host: "localhost",
-    user: 'root',
-    password: '',
-    database: "DogWalkService"
+    db = await mysql.createConnection({
+        host: "localhost",
+        user: 'root',
+        password: '',
+        database: "DogWalkService"
+    });
 });
 
 // db.connect((err) => {
