@@ -27,6 +27,8 @@ app.use((req, res, next) => {
         return res.redirect('index.html');
     }
 
+    const ownerPaths = ["/owner-dashboard.html"]
+
     if (req.session.user.role === 'owner' && !) {
         return
     }
