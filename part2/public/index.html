@@ -35,7 +35,9 @@
             body:JSON.stringify({email: this.email, password: this.password})
           });
 
-          const
+          const data = await response.json();
+
+          
         }
       }
     }).mount('#app');
