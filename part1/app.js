@@ -16,7 +16,7 @@ let db;
 
 (async () => {
     try {
-        db = await mysql.createPool({
+        db = await mysql.createConnection({
             host: "localhost",
             // user: 'root',
             // password: '',
