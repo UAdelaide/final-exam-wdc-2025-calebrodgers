@@ -32,30 +32,31 @@
       },
       methods: {
         async login() {
-          try{
-          const response = await fetch('/api/users/login', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ email: this.email, password: this.password })
-          });
+          try {
+            const response = await fetch('/api/users/login', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ email: this.email, password: this.password })
+            });
 
-          const data = await response.json();
+            const data = await response.json();
 
-          if (response.ok) {
-            // OK response came back from /api/users/login,
-            // so login is succesfull - redirect to appropriate dashboard!
-            if (data.user.role === 'owner') {
-              window.location.href = 'owner-dashboard.html';
-            } else if (data.user.role === 'walker') {
-              window.location.href = 'walker-dashboard.html';
+            if (response.ok) {
+              // OK response came back from /api/users/login,
+              // so login is succesfull - redirect to appropriate dashboard!
+              if (data.user.role === 'owner') {
+                window.location.href = 'owner-dashboard.html';
+              } else if (data.user.role === 'walker') {
+                window.location.href = 'walker-dashboard.html';
+              }
+            } else {
+              this.errorMsg = data.error || 'Invalid credntials';
             }
-          } else {
-            this.errorMsg = data.error || 'Invalid credntials';
+          } catch (error) {
+            this.errorMsg = 'Unexpected error'
           }
-        } catch (error) {
-          this.errorMsg
         }
       }
     }).mount('#app');
