@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const db = mysql.createConnection({
     host: "localhost",
-    database: "DogWalkingService"
+    database: "DogWalkService"
 });
 
 module.exports = app;
