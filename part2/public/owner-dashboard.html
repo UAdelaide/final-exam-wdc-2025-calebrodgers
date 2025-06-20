@@ -123,7 +123,9 @@
         async function loadDogs() {
           try {
 
-          } catch(err{})}
+          } catch(err) {
+            error.value = "Error loading dog list"
+          }}
         }
 
         async function logout() {
