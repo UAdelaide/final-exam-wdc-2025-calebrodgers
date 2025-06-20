@@ -20,30 +20,30 @@
     <div></div>
 
     <script>
-    const { createApp } = Vue;
-    createApp({
-      data() {
-        return {
-          dogImg: []
-        };
-      },
-      methods: {
-        async fetchDogs() {
-          try {
+        const { createApp } = Vue;
+        createApp({
+            data() {
+                return {
+                    dogImg: []
+                };
+            },
+            methods: {
+                async fetchDogs() {
+                    try {
 
-                  const imgRes = await fetch('https://dog.ceo/api/breeds/image/random');
-                  const img = await imgRes.json();
-                  return { ...dog, photo: img.message };
-                this.dogs = result;
+                        const imgRes = await fetch('https://dog.ceo/api/breeds/image/random');
+                        const img = await imgRes.json();
+                        return { ...dog, photo: img.message };
+                        this.dogs = img.message;
 
-          } catch (err) {
-            console.error('Error fetching dogs: ', err);
-      },
-      mounted() {
-        this.fetchDogs();
-      }
-    }).mount('#container');
-  </script>
+                    } catch (err) {
+                        console.error('Error fetching dogs: ', err);
+                    },
+                    mounted() {
+                        this.fetchDogs();
+                    }
+                }).mount('#container');
+    </script>
 </body>
 
 </html>
