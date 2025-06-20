@@ -25,7 +25,7 @@
         <h1>This is a service whereby you, the user can request for one of our registered student dog walkers to walk
             your
             dog for you</h1>
-        <button @click="step=1">
+        <button v-if="step===0" @click="step=1">
             Continue
         </button>
 
