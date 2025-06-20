@@ -4,12 +4,14 @@ const db = require('../models/db');
 
 // GET dogs by owner (for owners to select from)
 router.get('/', async (req, res) => {
-  const { owner_id } = req.query;
+  if (!req.session.user) {
+    return res.status(401).json({ error: 'Not logged in' });
+  }
 
   try {
     const [rows] = await db.query(`
       SELECT dog_id, name FROM Dogs WHERE owner_id = ?
-    `, req.session.user);
+    `, req.session.user.user_id);
     res.json(rows);
   } catch (error) {
     console.error('SQL Error:', error);
