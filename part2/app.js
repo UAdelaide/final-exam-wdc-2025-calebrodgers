@@ -19,7 +19,7 @@ app.use(
     })
 );
 
-
+// Redirect all unauthenticated users to index, and owners and walkers
 app.use((req, res, next) => {
 
 // Routes
