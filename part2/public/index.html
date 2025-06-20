@@ -111,6 +111,7 @@
             const response = await fetch('/api/dogs');
             const data = await response.json();
             if (response.ok) {
+              
               this.dogs = data;
             } else {
               console.error('Failed to fetch dogs')
