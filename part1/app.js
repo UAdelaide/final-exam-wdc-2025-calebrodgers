@@ -27,9 +27,9 @@ let db;
     }
 });
 
-app.get('/', async (req, res) => {
+app.get('/api/dogs', async (req, res) => {
     try {
-        const [users] = await db.query('SELECT * FROM Dogs');
+        const [dogs] = await db.query('SELECT * FROM Dogs');
         res.json(users);
     } catch (err) {
         console.log(err);
