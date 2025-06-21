@@ -16,7 +16,10 @@ router.get('/', async (req, res) => {
 router.post('/register', async (req, res) => {
   const {
     username,
-    email, password, role } = req.body;
+    email,
+    password,
+    role
+  } = req.body;
 
   try {
     const [result] = await db.query(`
@@ -34,7 +37,7 @@ router.get('/me', (req, res) => {
   if (!req.session.user) {
     return res.status(401).json({ error: 'Not logged in' });
   }
-  res.json(req.session.user);
+  return res.json(req.session.user);
 });
 
 // POST login
