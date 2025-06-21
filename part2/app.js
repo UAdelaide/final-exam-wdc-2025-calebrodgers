@@ -32,19 +32,19 @@ app.use((req, res, next) => {
         return res.redirect('/index.html');
     }
 
-    if (req.session.user.role === 'owner') {
-        const ownerPaths = ["/owner-dashboard.html", "api/walks", "api/users", "/api/dogs"];
-        if (!ownerPaths.some((p) => req.path.startsWith(p))) {
-            return res.redirect('/owner-dashboard.html');
-        }
-    }
+    // if (req.session.user.role === 'owner') {
+    //     const ownerPaths = ["/owner-dashboard.html", "api/walks", "api/users", "/api/dogs"];
+    //     if (!ownerPaths.some((p) => req.path.startsWith(p))) {
+    //         return res.redirect('/owner-dashboard.html');
+    //     }
+    // }
 
-    if (req.session.user.role === 'walker') {
-        const walkerPaths = ["/walker-dashboard.html", "api/walks", "api/users", "/api/dogs"];
-        if (!walkerPaths.some((p) => req.path.startsWith(p))) {
-            return res.redirect('/walker-dashboard.html');
-        }
-    }
+    // if (req.session.user.role === 'walker') {
+    //     const walkerPaths = ["/walker-dashboard.html", "api/walks", "api/users", "/api/dogs"];
+    //     if (!walkerPaths.some((p) => req.path.startsWith(p))) {
+    //         return res.redirect('/walker-dashboard.html');
+    //     }
+    // }
 
     next();
 });
