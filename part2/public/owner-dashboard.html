@@ -129,7 +129,7 @@
 
         async function loadDogs() {
           try {
-            // Call API to get l
+            // Call API to get list of dogs owned by user
             const res = await fetch(`/api/dogs/owned`);
 
             if (!res.ok) throw new Error(result.error || 'Error loading dogs');
