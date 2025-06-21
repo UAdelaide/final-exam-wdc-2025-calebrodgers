@@ -4,6 +4,7 @@ const db = require('../models/db');
 
 // GET dogs by owner (for owners to select from)
 router.get('/owned', async (req, res) => {
+  // Check the user is logged in, this route is only for logged in owners
   if (!req.session.user) {
     return res.status(401).json({ error: 'Not logged in' });
   }
