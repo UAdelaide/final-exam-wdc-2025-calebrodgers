@@ -43,8 +43,8 @@ app.use((req, res, next) => {
         }
     }
 
-    // Redirect all requests from walkers that are not API calls or requests for the walker-dashboard
-    // to the walker-dashboard
+    // Redirect all requests from walkers that are not API calls or requests for the
+    // walker-dashboard to the walker-dashboard
     if (req.session.user.role === 'walker') {
         const walkerPaths = ["/walker-dashboard.html", "/api/walks", "/api/users", "/api/dogs"];
         if (!walkerPaths.some((p) => req.path.startsWith(p))) {
