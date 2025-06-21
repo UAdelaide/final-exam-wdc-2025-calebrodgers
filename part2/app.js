@@ -45,9 +45,12 @@ app.use(
 app.use((req, res, next) => {
     const exposedPaths = ["/index.html", "api/users/login"];
 
-    if (exposedPaths.include)
-    if (!req.session.user && !exposedPaths.includes(req.path)) {
-        return res.redirect('index.html');
+    if (exposedPaths.includes(req.path)) {
+        return next();
+    }
+
+    if (!req.session.user) {
+        return res.redirect('/index.html');
     }
 
     const ownerPaths = ["/owner-dashboard.html", "api"];
