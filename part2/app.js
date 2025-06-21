@@ -28,7 +28,7 @@ app.use((req, res, next) => {
         return next();
     }
 
-    if (!req.session.user.user_id) {
+    if (!req.session.user) {
         return res.redirect('/index.html');
     }
 
