@@ -82,7 +82,7 @@ router.post('/logout', (req, res) => {
     // Clear the user's cookie
     res.clearCookie('connect.sid');
 
-    res.json({ message: 'Logout successful' });
+    return res.json({ message: 'Logout successful' });
   });
 });
 
