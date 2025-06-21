@@ -105,10 +105,12 @@
         },
         async fetchDogs() {
           try {
+            // Make API request to get list of all dogs
             const response = await fetch('/api/dogs');
             const data = await response.json();
             if (response.ok) {
               const result = await Promise.all(
+                // For each dog, assign the url of a picture of a random d
                 data.map(async dog => {
                   const imgRes = await fetch('https://dog.ceo/api/breeds/image/random');
                   const img = await imgRes.json();
