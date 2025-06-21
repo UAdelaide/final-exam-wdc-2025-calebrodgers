@@ -19,13 +19,15 @@ app.use(
 );
 
 // Redirect all unauthenticated users to index, and owners and walkers
-// to their respective pages
+// to their respective dashboards
 app.use((req, res, next) => {
     const exposedPaths = ["/index.html", "/api/users/login", "/api/dogs"];
 
     if (exposedPaths.includes(req.path)) {
         return next();
     }
+
+    
 
     if (!req.session.user) {
         return res.redirect('/index.html');
