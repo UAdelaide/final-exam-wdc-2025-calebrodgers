@@ -28,9 +28,9 @@ app.use((req, res, next) => {
         return next();
     }
 
-    if (!req.session.user) {
-        return res.redirect('/index.html');
-    }
+    // if (!req.session.user) {
+    //     return res.redirect('/index.html');
+    // }
 
     // if (req.session.user.role === 'owner') {
     //     const ownerPaths = ["/owner-dashboard.html", "api/walks", "api/users", "/api/dogs"];
