@@ -10,6 +10,10 @@
             color: green;
         }
 
+        #heading {
+            font-size: x-large;
+        }
+
         #dogofday {
             padding-top: 60vh;
         }
@@ -19,13 +23,14 @@
 <body>
     <div id="container">
         <div id="top"></div>
-        <div id="heading">This is a service whereby you, the user can request for one of our registered student dog walkers to walk
+        <div id="heading">This is a service whereby you, the user can request for one of our registered student dog
+            walkers to walk
             your
             dog for you
             <button v-if="step===0" @click="step=1">
                 Continue
             </button>
-        </h1>
+        </div>
 
         <div id="dogofday">
             <div v-if="step===1">
