@@ -60,11 +60,14 @@ app.use((req, res, next) => {
         }
     }
 
-    const walkerPaths = ["/walker-dashboard.html", "api"];
-
-    if (req.session.user.role === 'walker' && !walkerPaths) {
-        return res.redirect('/walker-dashboard.html');
+    if (req.session.user.role === 'walker') {
+        const ownerPaths = ["/walker-dashboard.html", "api/walks", "api/users","/api/dogs"];
+        if (!ownerPaths.some((p) => req.path.startsWith(p))) {
+            return res.redirect('/owner-dashboard.html');
+        }
     }
+
+    next();
 });
 
 // Routes
