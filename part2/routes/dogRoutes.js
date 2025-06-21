@@ -10,6 +10,7 @@ router.get('/owned', async (req, res) => {
   }
 
   try {
+    // Query the DB for dogs owned by the logged in user and return the results
     const [rows] = await db.query(`
       SELECT dog_id, name FROM Dogs WHERE owner_id = ?
     `, req.session.user.user_id);
