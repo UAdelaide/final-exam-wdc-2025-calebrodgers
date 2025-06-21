@@ -29,7 +29,7 @@ app.use((req, res, next) => {
     }
 
 
-    // Redirect 
+    // Redirect all other requests by unauthenticated users to index.html
     if (!req.session.user) {
         return res.redirect('/index.html');
     }
