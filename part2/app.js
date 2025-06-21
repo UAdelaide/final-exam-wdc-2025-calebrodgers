@@ -34,7 +34,8 @@ app.use((req, res, next) => {
         return res.redirect('/index.html');
     }
 
-    // Redirect all requests by owners thar
+    // Redirect all requests from owners that are not API calls or requests for the owner-dashboard
+    // to the owner-dashboard
     if (req.session.user.role === 'owner') {
         const ownerPaths = ["/owner-dashboard.html", "/api/walks", "/api/users", "/api/dogs"];
         if (!ownerPaths.some((p) => req.path.startsWith(p))) {
@@ -42,6 +43,8 @@ app.use((req, res, next) => {
         }
     }
 
+    // Redirect all requests from walkers that are not API calls or requests for the walker-dashboard
+    // to the walker-dashboard
     if (req.session.user.role === 'walker') {
         const walkerPaths = ["/walker-dashboard.html", "/api/walks", "/api/users", "/api/dogs"];
         if (!walkerPaths.some((p) => req.path.startsWith(p))) {
