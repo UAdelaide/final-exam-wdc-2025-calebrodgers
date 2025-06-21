@@ -56,8 +56,6 @@
             const res = await fetch('/api/users/me');
             if (!res.ok) throw new Error('Could not get current user');
             user.value = await res.json();
-            console.log(user.value);
-
           } catch (error) {
             error.value = 'Error loading the current user';
           }
