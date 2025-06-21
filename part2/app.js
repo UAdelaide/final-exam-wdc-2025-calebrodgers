@@ -38,7 +38,9 @@ app.use((req, res, next) => {
             return res.redirect('/owner-dashboard.html');
         }
 
-        if (req.path === req.path)
+        if (req.path === "/walker-dashboard.html") {
+            return res.redirect
+        }
     }
 
     if (req.session.user.role === 'walker') {
