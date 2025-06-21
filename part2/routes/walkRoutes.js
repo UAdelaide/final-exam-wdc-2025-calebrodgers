@@ -24,7 +24,8 @@ router.post('/', async (req, res) => {
     dog_id,
     requested_time,
     duration_minutes,
-    location } = req.body;
+    location
+  } = req.body;
 
   try {
     const [result] = await db.query(`
