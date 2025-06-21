@@ -35,7 +35,7 @@ router.get('/me', (req, res) => {
   res.json(req.session.user);
 });
 
-// POST login (dummy version)
+// POST login
 router.post('/login', async (req, res) => {
   const { username, password } = req.body;
 
@@ -66,7 +66,9 @@ router.post('/login', async (req, res) => {
   }
 });
 
+// POST logout
 router.post('/logout', (req, res) => {
+  // Destory the user's session
   req.session.destroy((err) => {
     if (err) {
       return res.status(500).json({ error: 'Logout error' });
