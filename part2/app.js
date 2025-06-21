@@ -37,6 +37,8 @@ app.use((req, res, next) => {
         if (!ownerPaths.some((p) => req.path.startsWith(p))) {
             return res.redirect('/owner-dashboard.html');
         }
+
+        if (req.path === req.path)
     }
 
     if (req.session.user.role === 'walker') {
