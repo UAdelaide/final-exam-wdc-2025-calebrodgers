@@ -53,9 +53,8 @@ app.use((req, res, next) => {
         return res.redirect('/index.html');
     }
 
-    const ownerPaths = ["/owner-dashboard.html", "api"];
-
-    if (req.session.user.role === 'owner' && !ownerPaths) {
+    if (req.session.user.role === 'owner') {
+        const ownerPaths = ["/owner-dashboard.html", "api"];
         return res.redirect('/owner-dashboard.html');
     }
 
