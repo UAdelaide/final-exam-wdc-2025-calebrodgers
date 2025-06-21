@@ -110,7 +110,7 @@
             const data = await response.json();
             if (response.ok) {
               const result = await Promise.all(
-                // For each dog, assign the url of a picture of a random d
+                // For each dog, assign the url of a picture of a random dog
                 data.map(async dog => {
                   const imgRes = await fetch('https://dog.ceo/api/breeds/image/random');
                   const img = await imgRes.json();
