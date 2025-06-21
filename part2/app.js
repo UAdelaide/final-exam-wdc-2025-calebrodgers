@@ -39,7 +39,7 @@ app.use((req, res, next) => {
         }
 
         if (req.path === "/walker-dashboard.html") {
-            return res.redirect
+            return res.redirect('/owner-dashboard.html');
         }
     }
 
